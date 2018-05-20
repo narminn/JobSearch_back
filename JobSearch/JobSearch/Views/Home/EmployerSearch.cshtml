@@ -1,0 +1,89 @@
+﻿@model IEnumerable<JobSearch.Models.Employer>
+@{
+    ViewBag.Title = "EmployerSearch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<section id="filter">
+    <form>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <label for="fname">Category</label>
+                    <select name="" id="category">
+                        @foreach (var item in Model._category)
+                        {
+                            <option value="">@item.category_name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <label for="fname">City</label>
+                    <select name="" id="city">
+                        @foreach (var item in Model._city)
+                        {
+                            <option value="">@item.city_name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <label for="fname">Minimum Salary</label>
+                    <input type="text" id="salary" name="" placeholder="Minimum Salary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <label for="fname">Education Degree</label>
+                    <select name="" id="degree">
+                        @foreach (var item in Model._degree)
+                        {
+                            <option value="">@item.degree_name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <label for="fname">Work Experience</label>
+                    <select name="" id="work">
+                        @foreach (var item in Model._work)
+                        {
+                            <option value="">@item.experience_interval</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <label for="fname">Keywords</label>
+                    <input type="text" id="keyword" name="" placeholder="Açar sözləri">
+                </div>
+            </div>
+            <button type="submit" name="button" id="btn">Search</button>
+        </div>
+    </form>
+</section>*@
+<section id="result">
+    <div class="container">
+        <h1>Search Results: @ViewBag.Count</h1>
+        <div class="row">
+            @foreach (JobSearch.Models.Employer item in Model)
+            {
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="box">
+                        <h3>@item.Category.category_name</h3>
+                        <a href="#">
+                            <div class="price">
+                                <div class="left">@item.minimum_salary AZN</div>
+                                <div class="right">Ətraflı</div>
+                            </div>
+                        </a>
+                        @{
+                            var now = Convert.ToInt32(DateTime.Now.Year);
+                            var y = now - item.date_of_birth.Value.Year;
+                        }
+                        <p>@item.firstname  @item.lastname, @y age, education is @item.Education_degrees.degree_name, work experience is @item.Work_experience.experience_interval , living place is @item.City.city_name</p>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+

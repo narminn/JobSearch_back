@@ -1,0 +1,96 @@
+﻿@model JobSearch.ViewModel.SingleModel
+@{
+    ViewBag.Title = "Single";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <section id="about">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="box">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h1>@Model._emp.Category.category_name</h1>
+                                    <div class="pricebox">
+                                        <div class="price">@Model._emp.minimum_salary AZN</div>
+                                        <h4>@Model._emp.firstname</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @{
+        var now = Convert.ToInt32(DateTime.Now.Year);
+        var y = now - Model._emp.date_of_birth.Value.Year;
+                        }
+                        <section id="yellowbox">
+                            <div class="box2">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-6" style="padding:0"><h6>City</h6></div>
+                                                    <div class="col-lg-6">@Model._emp.City.city_name</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6" style="padding:0"><h6>Age</h6></div>
+                                                    <div class="col-lg-6">@y  age</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6" style="padding:0"><h6>Gender</h6></div>
+                                                    <div class="col-lg-6">@Model._emp.Gender.gender_name</div>
+                                                </div>
+                                                
+                                                <div class="row">
+                                                    <div class="col-lg-6" style="padding:0"><h6>Name</h6></div>
+                                                    <div class="col-lg-6">@Model._emp.firstname @Model._emp.fathername @Model._emp.lastname</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-md-12 col-12">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-6"><h6>Phone</h6></div>
+                                                    <div class="col-lg-6">@Model._emp.phone1 @Model._emp.phone2</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6"><h6>E-mail</h6></div>
+                                                    <div class="col-lg-6">@Model._emp.email</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="text">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <h5>Skills</h5>
+                                        <p>@Model._emp.addition_information</p>
+                                        <h5>Languages</h5>
+                                        <p>@Model._emp.lang_skills</p>
+                                        <h5>Other Skills</h5>
+                                        <p>@Model._emp.other_skills</p>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <ul>
+                                            <h5>Work Experience</h5>
+                                            <li>@Model._emp.Work_experience.experience_interval</li>
+                                            <li>@Model._emp.work_experience_about</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+

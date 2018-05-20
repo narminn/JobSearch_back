@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JobSearchDbModelStoreContainer" CdmEntityContainer="JobSearchDbEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="JobSearchDbModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="JobSearchDbModel.City">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="city_name" ColumnName="city_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Education_degrees">
+      <EntityTypeMapping TypeName="JobSearchDbModel.Education_degrees">
+        <MappingFragment StoreEntitySet="Education_degrees">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="degree_name" ColumnName="degree_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employers">
+      <EntityTypeMapping TypeName="JobSearchDbModel.Employer">
+        <MappingFragment StoreEntitySet="Employers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="fathername" ColumnName="fathername" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="gender_id" ColumnName="gender_id" />
+          <ScalarProperty Name="marriage_status_id" ColumnName="marriage_status_id" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="education_degree_id" ColumnName="education_degree_id" />
+          <ScalarProperty Name="education_institution" ColumnName="education_institution" />
+          <ScalarProperty Name="education_faculty" ColumnName="education_faculty" />
+          <ScalarProperty Name="work_experience_id" ColumnName="work_experience_id" />
+          <ScalarProperty Name="work_experience_about" ColumnName="work_experience_about" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+          <ScalarProperty Name="minimum_salary" ColumnName="minimum_salary" />
+          <ScalarProperty Name="lang_skills" ColumnName="lang_skills" />
+          <ScalarProperty Name="other_skills" ColumnName="other_skills" />
+          <ScalarProperty Name="addition_information" ColumnName="addition_information" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone1" ColumnName="phone1" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="JobSearchDbModel.Gender">
+        <MappingFragment StoreEntitySet="Genders">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gender_name" ColumnName="gender_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marriage_status">
+      <EntityTypeMapping TypeName="JobSearchDbModel.Marriage_status">
+        <MappingFragment StoreEntitySet="Marriage_status">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="status_name" ColumnName="status_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Work_experience">
+      <EntityTypeMapping TypeName="JobSearchDbModel.Work_experience">
+        <MappingFragment StoreEntitySet="Work_experience">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="experience_interval" ColumnName="experience_interval" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

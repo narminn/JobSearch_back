@@ -1,0 +1,209 @@
+﻿@model JobSearch.Models.Employer
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Employer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fathername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fathername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_of_birth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_of_birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.education_institution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.education_institution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.education_faculty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.education_faculty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.work_experience_about)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.work_experience_about)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.minimum_salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.minimum_salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lang_skills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lang_skills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.other_skills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.other_skills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.addition_information)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.addition_information)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.category_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.category_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City.city_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.city_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Education_degrees.degree_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Education_degrees.degree_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender.gender_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender.gender_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marriage_status.status_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marriage_status.status_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work_experience.experience_interval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work_experience.experience_interval)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

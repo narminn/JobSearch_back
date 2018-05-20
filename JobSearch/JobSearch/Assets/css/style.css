@@ -1,0 +1,177 @@
+#header {
+  width: 100%;
+  background: #f8cb1c; }
+  #header a {
+    text-decoration: none; }
+    #header a .logo {
+      color: black;
+      padding: 10px; }
+  #header .elan {
+    padding: 10px;
+    margin-top: 10px;
+    color: black;
+    background: #fff;
+    float: right;
+    border-radius: 5px;
+    box-shadow: -1px 13px 55px -15px #696569;
+    transition: .5s; }
+    #header .elan a {
+      text-decoration: none;
+      color: black; }
+    #header .elan:hover {
+      background: black;
+      color: #fff;
+      cursor: pointer; }
+      #header .elan:hover a {
+        color: #fff; }
+
+#filter {
+  width: 100%;
+  background: #f9d54b;
+  padding: 20px 0px; }
+  #filter select, #filter input {
+    width: 100%;
+    padding: 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box; }
+  #filter button {
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
+    background: #fff;
+    text-align: center;
+    margin-left: 45%;
+    border: none;
+    border-radius: 5px;
+    box-shadow: -1px 13px 55px -15px #696569;
+    transition: .5s ease; }
+    #filter button:hover {
+      background: black;
+      color: #fff;
+      cursor: pointer; }
+
+#result {
+  width: 100%;
+  background: #f4f4f4; }
+  #result h1 {
+    line-height: 30px;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: "PT Sans Narrow", sans-serif;
+    padding: 20px 0;
+    margin-bottom: 15px; }
+  #result .box {
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    padding: 20px 30px 50px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    cursor: pointer;
+    -webkit-transition: -webkit-box-shadow 0.2s;
+    transition: -webkit-box-shadow 0.2s;
+    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, -webkit-box-shadow 0.2s; }
+    #result .box h3 {
+      margin-bottom: 5px;
+      color: #eab121;
+      line-height: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      font-family: "PT Sans Narrow", sans-serif;
+      letter-spacing: 0.5px; }
+    #result .box .price {
+      width: 180px;
+      height: 50px;
+      cursor: pointer; }
+      #result .box .price .left {
+        width: 100px;
+        background-color: #f8cb1c;
+        font-weight: bold;
+        padding: 7px;
+        float: left;
+        border-radius: 5px;
+        color: black; }
+      #result .box .price .right {
+        width: 80px;
+        font-weight: bold;
+        padding: 7px;
+        float: right;
+        border-top: 1px solid #d8d8d8;
+        border-right: 1px solid #d8d8d8;
+        border-bottom: 1px solid #d8d8d8;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        text-decoration: underline;
+        font-size: 16px;
+        color: #555;
+        font-family: "Helvetica Neue";
+        text-align: center;
+        cursor: pointer; }
+        #result .box .price .right a {
+          color: black; }
+    #result .box p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+      font-size: 15px; }
+
+#yellowbox {
+  width: 100%; }
+  #yellowbox .box2 {
+    width: 100%;
+    background: #fffae9;
+    padding: 15px;
+    font-size: 15px; }
+    #yellowbox .box2 h6 {
+      font-weight: bold;
+      font-size: 15px;
+      padding: 2px; }
+
+#text {
+  width: 100%;
+  margin-top: 5%; }
+  #text ul {
+    list-style: none; }
+
+#about {
+  width: 100%;
+  background: #f4f4f4; }
+  #about .box {
+    width: 100%;
+    margin-top: 20px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    cursor: pointer;
+    -webkit-transition: -webkit-box-shadow 0.2s;
+    transition: -webkit-box-shadow 0.2s;
+    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, -webkit-box-shadow 0.2s; }
+    #about .box h1 {
+      color: #eab121;
+      line-height: 40px;
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 5px; }
+    #about .box .pricebox {
+      width: 200px;
+      height: 50px; }
+      #about .box .pricebox .price {
+        float: left;
+        width: 100px;
+        padding: 5px;
+        text-align: center;
+        border-radius: 4px;
+        background-color: #f8cb1c;
+        font-weight: bold;
+        color: #333;
+        font-size: 19px; }
+      #about .box .pricebox h4 {
+        float: right;
+        font-size: 22px;
+        font-family: "Helvetica Neue";
+        padding: 6px 11px; }
+
+/*# sourceMappingURL=style.css.map */

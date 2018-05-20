@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobSearchDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city_name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Education_degrees">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="degree_name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Employers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="100" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="100" />
+    <Property Name="fathername" Type="nvarchar" MaxLength="100" />
+    <Property Name="date_of_birth" Type="datetime" />
+    <Property Name="gender_id" Type="int" />
+    <Property Name="marriage_status_id" Type="int" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="education_degree_id" Type="int" />
+    <Property Name="education_institution" Type="nvarchar" MaxLength="200" />
+    <Property Name="education_faculty" Type="nvarchar" MaxLength="200" />
+    <Property Name="work_experience_id" Type="int" />
+    <Property Name="work_experience_about" Type="nvarchar(max)" />
+    <Property Name="category_id" Type="int" />
+    <Property Name="position" Type="nvarchar" MaxLength="100" />
+    <Property Name="city_id" Type="int" />
+    <Property Name="minimum_salary" Type="int" />
+    <Property Name="lang_skills" Type="nvarchar(max)" />
+    <Property Name="other_skills" Type="nvarchar(max)" />
+    <Property Name="addition_information" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone1" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone2" Type="nvarchar" MaxLength="100" />
+    <Property Name="address" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Genders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gender_name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Marriage_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status_name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Work_experience">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="experience_interval" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_Employers_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="city_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Education_degrees">
+    <End Role="Education_degrees" Type="Self.Education_degrees" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Education_degrees">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="education_degree_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Genders">
+    <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="gender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Marriage_status">
+    <End Role="Marriage_status" Type="Self.Marriage_status" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marriage_status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="marriage_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Work_experience">
+    <End Role="Work_experience" Type="Self.Work_experience" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work_experience">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="work_experience_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JobSearchDbModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Education_degrees" EntityType="Self.Education_degrees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employers" EntityType="Self.Employers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marriage_status" EntityType="Self.Marriage_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Work_experience" EntityType="Self.Work_experience" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Employers_Categories" Association="Self.FK_Employers_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Cities" Association="Self.FK_Employers_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Education_degrees" Association="Self.FK_Employers_Education_degrees">
+      <End Role="Education_degrees" EntitySet="Education_degrees" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Genders" Association="Self.FK_Employers_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Marriage_status" Association="Self.FK_Employers_Marriage_status">
+      <End Role="Marriage_status" EntitySet="Marriage_status" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Work_experience" Association="Self.FK_Employers_Work_experience">
+      <End Role="Work_experience" EntitySet="Work_experience" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

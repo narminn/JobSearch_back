@@ -1,0 +1,129 @@
+﻿@model JobSearch.ViewModel.EmployerModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+    <section id="filter">
+        <form>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                        <label for="fname">Category</label>
+                        <select name="" id="category">
+                            <option value="">All Categories</option>
+                            @foreach (var item in Model._category)
+    {
+
+                        <option value="@item.category_name" id="">@item.category_name</option>
+}
+                        </select>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                        <label for="fname">City</label>
+                        <select name="" id="city">
+                            <option>All Cities</option>
+                            @foreach (var item in Model._city)
+    {
+                        <option value="@item.city_name">@item.city_name</option>
+}
+                        </select>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                        <label for="fname">Minimum Salary</label>
+                        <input type="text" id="salary" name="" placeholder="Minimum Salary">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 col-md-2"></div>
+                    <div class="col-lg-4 col-md-4  col-sm-12 col-12">
+                        <label for="fname">Education Degree</label>
+                        <select name="" id="degree">
+                            <option>Not Important</option>
+                            @foreach (var item in Model._degree)
+            {
+                <option value="@item.degree_name">@item.degree_name</option>
+}
+                        </select>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                        <label for="fname">Work Experience</label>
+                        <select name="" id="work">
+                            <option>Not Important</option>
+                            @foreach (var item in Model._work)
+            {
+                <option value="@item.experience_interval">@item.experience_interval</option>
+}
+                        </select>
+                    </div>
+                    <div class="col-lg-2 col-md-2"></div>
+                    @*<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+            <label for="fname">Keywords</label>
+            <input type="text" id="keyword" name="" placeholder="Açar sözləri">
+        </div>*@
+                </div>
+                <button type="button" name="button" id="btn">Search</button>
+            </div>
+        </form>
+    </section>
+    <section id="result">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model._employer)
+    {
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="box">
+                    <h3>@item.Category.category_name</h3>
+                    <a href="/Home/Single/@item.id">
+                        <div class="price">
+                            <div class="left">@item.minimum_salary AZN</div>
+                            <div class="right">Ətraflı</div>
+                        </div>
+                    </a>
+                    @{ 
+                        var now = Convert.ToInt32(DateTime.Now.Year);
+                        var y = now - item.date_of_birth.Value.Year;
+                    }
+                    <p>@item.firstname  @item.lastname, @y age, education is @item.Education_degrees.degree_name, work experience is @item.Work_experience.experience_interval , living place is @item.City.city_name</p>
+                </div>
+            </div>
+}
+                
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function (e) {
+        var cat,cit,sal,deg,wor,key;
+        $("#btn").click(function (e) {
+            cat = $("#category").val();
+            cit = $("#city").val();
+            sal = $("#salary").val();
+            deg = $("#degree").val();
+            wor = $("#work").val();
+            key = $("#keyword").val();
+
+            console.log(cat+" "+cit+" "+sal+" "+deg+" "+wor+" "+key);
+            $.ajax({
+                type: "Get",
+                data: {
+                    search_cat: cat,
+                    search_cit: cit,
+                    search_sal: sal,
+                    search_deg: deg,
+                    search_wor: wor,
+                    search_key:key
+                },
+                url: "/Home/EmployerSearch",
+                contentType: "Html",
+                success: function (response) {
+                    $("body").html(response)
+                }
+            })
+        })
+    })
+    </script>

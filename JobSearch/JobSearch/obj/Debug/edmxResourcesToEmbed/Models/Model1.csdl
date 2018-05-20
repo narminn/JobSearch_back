@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobSearchDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employers" Relationship="Self.FK_Employers_Categories" FromRole="Categories" ToRole="Employers" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="city_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employers" Relationship="Self.FK_Employers_Cities" FromRole="Cities" ToRole="Employers" />
+  </EntityType>
+  <EntityType Name="Education_degrees">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="degree_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employers" Relationship="Self.FK_Employers_Education_degrees" FromRole="Education_degrees" ToRole="Employers" />
+  </EntityType>
+  <EntityType Name="Employer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="fathername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_birth" Type="DateTime" Precision="3" />
+    <Property Name="gender_id" Type="Int32" />
+    <Property Name="marriage_status_id" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="education_degree_id" Type="Int32" />
+    <Property Name="education_institution" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="education_faculty" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="work_experience_id" Type="Int32" />
+    <Property Name="work_experience_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="category_id" Type="Int32" />
+    <Property Name="position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="city_id" Type="Int32" />
+    <Property Name="minimum_salary" Type="Int32" />
+    <Property Name="lang_skills" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="other_skills" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addition_information" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Employers_Categories" FromRole="Employers" ToRole="Categories" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Employers_Cities" FromRole="Employers" ToRole="Cities" />
+    <NavigationProperty Name="Education_degrees" Relationship="Self.FK_Employers_Education_degrees" FromRole="Employers" ToRole="Education_degrees" />
+    <NavigationProperty Name="Gender" Relationship="Self.FK_Employers_Genders" FromRole="Employers" ToRole="Genders" />
+    <NavigationProperty Name="Marriage_status" Relationship="Self.FK_Employers_Marriage_status" FromRole="Employers" ToRole="Marriage_status" />
+    <NavigationProperty Name="Work_experience" Relationship="Self.FK_Employers_Work_experience" FromRole="Employers" ToRole="Work_experience" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gender_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employers" Relationship="Self.FK_Employers_Genders" FromRole="Genders" ToRole="Employers" />
+  </EntityType>
+  <EntityType Name="Marriage_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employers" Relationship="Self.FK_Employers_Marriage_status" FromRole="Marriage_status" ToRole="Employers" />
+  </EntityType>
+  <EntityType Name="Work_experience">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="experience_interval" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employers" Relationship="Self.FK_Employers_Work_experience" FromRole="Work_experience" ToRole="Employers" />
+  </EntityType>
+  <Association Name="FK_Employers_Categories">
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Cities">
+    <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="city_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Education_degrees">
+    <End Role="Education_degrees" Type="Self.Education_degrees" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Education_degrees">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="education_degree_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Genders">
+    <End Role="Genders" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="gender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Marriage_status">
+    <End Role="Marriage_status" Type="Self.Marriage_status" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marriage_status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="marriage_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employers_Work_experience">
+    <End Role="Work_experience" Type="Self.Work_experience" Multiplicity="0..1" />
+    <End Role="Employers" Type="Self.Employer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work_experience">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Employers">
+        <PropertyRef Name="work_experience_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JobSearchDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Education_degrees" EntityType="Self.Education_degrees" />
+    <EntitySet Name="Employers" EntityType="Self.Employer" />
+    <EntitySet Name="Genders" EntityType="Self.Gender" />
+    <EntitySet Name="Marriage_status" EntityType="Self.Marriage_status" />
+    <EntitySet Name="Work_experience" EntityType="Self.Work_experience" />
+    <AssociationSet Name="FK_Employers_Categories" Association="Self.FK_Employers_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Cities" Association="Self.FK_Employers_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Education_degrees" Association="Self.FK_Employers_Education_degrees">
+      <End Role="Education_degrees" EntitySet="Education_degrees" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Genders" Association="Self.FK_Employers_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Marriage_status" Association="Self.FK_Employers_Marriage_status">
+      <End Role="Marriage_status" EntitySet="Marriage_status" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employers_Work_experience" Association="Self.FK_Employers_Work_experience">
+      <End Role="Work_experience" EntitySet="Work_experience" />
+      <End Role="Employers" EntitySet="Employers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,28 @@
+#filter{
+  width: 100%;
+  background: #f9d54b;
+  padding: 20px 0px;
+  select, input {
+    width: 100%;
+    padding: 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+ }
+ button{
+   width: 100px;
+   padding: 5px;
+   margin-bottom: 10px;
+   background: #fff;
+   text-align: center;
+   margin-left: 45%;
+   border: none;
+   border-radius: 5px;
+   box-shadow: -1px 13px 55px -15px rgba(105,101,105,1);
+   transition: .5s ease;
+   &:hover{
+     background: black;
+     color: #fff;
+     cursor: pointer;
+   }
+ }
+}
